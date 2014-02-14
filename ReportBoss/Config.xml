@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<root>
+  <dep>
+    <name>机票</name>
+    <email>sthuang@Ctrip.com;lzou@Ctrip.com;zqchi@Ctrip.com;liangchen2@Ctrip.com;zjluo@Ctrip.com;zding@Ctrip.com;xxing@Ctrip.com;SQA@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10003&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>酒店</name>
+    <email>xueliangwu@Ctrip.com;lei_c@Ctrip.com;yuyh@Ctrip.com;CAI_XINFA@Ctrip.com;SQA@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10004&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>公共服务</name>
+    <email>huww@Ctrip.com;qiuyangjiang@Ctrip.com;xiaoqiangwang@Ctrip.com;xlli@Ctrip.com;SQA@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10005&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>商旅</name>
+    <email>xbxu@Ctrip.com;wlv@Ctrip.com;lai_li@Ctrip.com;luosy@Ctrip.com;SQA@Ctrip.com;CSO_rm@Ctrip.com;HAN_SHITUO@Ctrip.com;autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10006&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>营销高端</name>
+    <email>ke_wang@Ctrip.com;hling@Ctrip.com;panwei@Ctrip.com;SQA@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10008&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>度假</name>
+    <email>shenwm@Ctrip.com;j_yan@Ctrip.com;zjzhang@Ctrip.com;jqiu@Ctrip.com;wjweng@Ctrip.com;kmgu@Ctrip.com;yxing@Ctrip.com;qiuwy@Ctrip.com;lmzhong@Ctrip.com;dyzhang@Ctrip.com;he.y@Ctrip.com;xhzhou@Ctrip.com;SQA@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10009&runid=
+        ]]>
+      </link>
+      
+    </website>
+  </dep>
+  <dep>
+    <name>攻略社区</name>
+    <email>autotest@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10010&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+</root>

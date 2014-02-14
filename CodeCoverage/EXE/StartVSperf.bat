@@ -1,0 +1,1 @@
+vsperfmon /coverage /output:%1 /cs /user:Everyone

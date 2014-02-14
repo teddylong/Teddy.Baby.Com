@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CodeCoverage Help</title>
+    <link rel="stylesheet" href="../Style/CodeCoverage.css" />
+</head>
+<body>
+    <div class="code">
+        <pre class=" language-javascript">
+        <span class="token builtin">CodeCoverage Usage</span>
+<br />
+        <span class="token number">Part one:</span><span> Web端配置（现在deploy在FAT14-WEB1这台server上） </span>
+            <span>1. ATDataBaseCI: 数据库连接串</span>
+            <span>2. ReportAddress: 报告存放地址</span>
+<br />
+        <span class="token number">Part Two:</span><span> Client端配置(现在deploy在FAT15-WEB1,FAT16-WEB1,FAT45-WEB1,FAT46-WEB1这4台server上)
+                  本部分包含一些Windows必须文件和一个Console App.我们只关心Console App的config即可.</span>
+            <span>1. ATDataBaseCI: 数据库连接串</span>
+            <span>2. SourceMachine: 本台机器的Machine Name, 例如"DST46664"</span>
+            <span>3. VSINSTR, VSPerfMon, VSPerfMonStop, StartVSperfBAT: 这些为windows必须文件的地址,要保证放在同一目录下</span>
+            <span>4. BaseFolder: 同上,即放置的目录名字</span>
+            <span>5. outPutFolder: 生成的report放置路径</span>
+<br />        
+        <span class="token number">Part Three:</span><span> 使用流程</span>
+            <span>1. 打开web程序，输入机器名，得到DLL文件信息</span>
+            <span>2. 选择要测的相关DLL文件</span>
+            <span>3. 点击"开始"按钮</span>
+            <span>4. 去运行相关的黑盒测试用例,直到测试完成</span>
+            <span>5. 点击"停止"按钮</span>
+            <span>6. 点击"刷新"按钮</span>
+            <span>7. 点击"显示报表"看新生成的report文件(或者选中以前的report进行查看)</span>
+        </pre>
+    </div>
+</body>
+</html>

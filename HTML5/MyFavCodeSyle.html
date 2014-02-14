@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>My Fav Code Style</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+</head>
+<body>
+    <div class="code">
+        <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> api <span class="token operator">=</span> <span class="token function">Absurd<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+api<span class="token punctuation">.</span><span class="token function">add<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+	body<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		marginTop<span class="token punctuation">:</span> <span class="token string">"20px"</span><span class="token punctuation">,</span>
+		p<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+			color<span class="token punctuation">:</span> <span class="token string">"#000"</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    </div>
+    <div class="code">
+        <pre class=" language-markup"><code class=" language-markup"><span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>absurd.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span></code></pre>
+    </div>
+    <div class="code">
+        <pre class=" language-javascript"><code class=" language-javascript">api<span class="token punctuation">.</span><span class="token function">compile<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> css<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">	// use the compiled css
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+    </div>
+    <div class="code">
+        
+        <pre class=" language-javascript"><code class=" language-javascript">api<span class="token punctuation">.</span><span class="token function">add<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+    body<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        lineHeight<span class="token punctuation">:</span> <span class="token string">'20px'</span><span class="token punctuation">,</span>
+        <span class="token string">'@media all (max-width: 950px)'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            lineHeight<span class="token punctuation">:</span> <span class="token string">'40px'</span><span class="token punctuation">,</span>
+            color<span class="token punctuation">:</span> <span class="token string">'#BADA55'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">'@media all (min-width: 550px)'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            lineHeight<span class="token punctuation">:</span> <span class="token string">'32px'</span>  
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        p<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            margin<span class="token punctuation">:</span> <span class="token string">'10px'</span><span class="token punctuation">,</span>
+            padding<span class="token punctuation">:</span> <span class="token string">'4px'</span><span class="token punctuation">,</span>
+        <span class="token string">'@media all (max-width: 950px)'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                padding<span class="token punctuation">:</span> <span class="token string">'12px'</span><span class="token punctuation">,</span>
+        <span class="token string">'brand-color'</span><span class="token punctuation">:</span> <span class="token string">''</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+        
+        <pre class=" language-css"><code class=" language-css"><span class="token selector">body </span><span class="token punctuation">{</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">body p </span><span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token atrule">@media all (max-width<span class="token punctuation">:</span> 950px)</span> <span class="token punctuation">{</span>
+        <span class="token selector">body </span><span class="token punctuation">{</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #BADA55<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token selector">body p </span><span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #9fA<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 12px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule">@media all (min-width<span class="token punctuation">:</span> 550px)</span> <span class="token punctuation">{</span>
+        <span class="token selector">body </span><span class="token punctuation">{</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 32px<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+    </div>
+</body>
+</html>

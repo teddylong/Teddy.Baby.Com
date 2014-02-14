@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ATDataBase" Class="MyLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.81.16,55944;Initial Catalog=ATDataBase;Persist Security Info=True;User ID=uapp_autotest" SettingsObjectName="Metric_AUTOMATION.Properties.Settings" SettingsPropertyName="ATDataBaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CI_API_Run" Member="CI_API_Runs">
+    <Type Name="CI_API_Run">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RequestType" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ServerIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CallerIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ActionTime" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ResultCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CallTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ENV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CaseInfoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CaseResult" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_LOG_CASE" Member="CI_LOG_CASEs">
+    <Type Name="CI_LOG_CASE">
+      <Column Name="CaseID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JobID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CaseInfoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GmtCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Result" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="APP" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_LOG_CaseInfo" Member="CI_LOG_CaseInfos">
+    <Type Name="CI_LOG_CaseInfo">
+      <Column Name="CaseInfoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GmtCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GmtModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Result" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProjectName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ClassName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MethodName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LatestCaseID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_LOG_JOB" Member="CI_LOG_JOBs">
+    <Type Name="CI_LOG_JOB">
+      <Column Name="JobID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GmtCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RunID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Env" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Browser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GmtEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JobName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="slaveIP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="slaveName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="projectName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaseCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseSuccess" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseFail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseWarn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

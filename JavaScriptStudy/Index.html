@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>This is Main Page for JS Study</title>
+    <script charset="utf-8" type="text/javascript" src="jquery-2.0.3.js"></script>
+    <script charset="utf-8" type="text/javascript" src="study.js"></script>
+    
+</head>
+<body>
+    <div>
+        <p>函数的覆盖以及arguments的用法</p><button onclick="doAdd(8)">Button</button>
+        <p>----------------------------</p>
+        <p>函数call另外函数</p><button onclick="CallAnotherMethod(otherMethod,'Hi.This is Another Method')">Button</button>
+        <p>----------------------------</p>
+        <p>显示函数方法</p><button onclick="DisplayDetail()">Button</button>
+        <p>----------------------------</p>
+    </div>
+    <div>
+        <iframe src="topFrame.html" name="topFrame" width="800" height="auto"></iframe><button onclick="CallFrameName(0)">Call Frame Name</button>
+        <br />
+        <iframe src="bottomFrame.html" name="bottomFrame" width="800" height="auto"></iframe><button onclick="CallFrameName(1)">Call Frame Name</button>
+    </div>
+    <p>----------------------------</p>
+</body>
+</html>

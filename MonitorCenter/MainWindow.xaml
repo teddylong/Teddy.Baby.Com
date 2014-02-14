@@ -1,0 +1,73 @@
+﻿<Window x:Class="MonitorCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Monitor Center" Height="550" Width="1200" FontSize="14" FontFamily="Microsoft YaHei"  Foreground="Wheat"
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="True" ShowActivated="True"
+        ResizeMode="CanMinimize" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Icon="activity_monitor.ico" Closing="windows_Close"
+        Style="{DynamicResource MainWinStyle}">
+    <Border x:Name="CustomWindowBorder" BorderBrush="Black" BorderThickness="0" CornerRadius="10" MouseLeftButtonDown="moveWindows" >
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF293B44" Offset="1"/>
+                <GradientStop Color="#FF30394F" Offset="0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="10"></DropShadowEffect>
+        </Border.Effect>
+
+        <Canvas Name="MainCanvas" Margin="0,50,0,0">
+            <Canvas Name="TitleCanvas" Margin="500,-30,0,0">
+                <TextBlock Text="Monitor Center" FontSize="22" FontWeight="Bold" Canvas.Top="-6" Foreground="#FFFFFBED"></TextBlock>
+                <StackPanel Orientation="Horizontal" Height="31" Canvas.Right="-681.3" Width="auto" Canvas.Left="633" Canvas.Top="-13">
+                    <Button Name="minBtn" Style="{DynamicResource MinBtnStyle}" Click="minBtn_Click" >
+                        <Image x:Name="MinBtnPic" Source="pics\minBtn.png" HorizontalAlignment="Right" Width="20"/>
+                    </Button>
+                    <Button Name="closeBtn" Style="{DynamicResource MaxBtnStyle}" Click="closeBtn_Click">
+                        <Image x:Name="CloseBtnPic" Source="pics\closeBtn.png" HorizontalAlignment="Right" Width="20"/>
+                    </Button>
+                </StackPanel>
+            </Canvas>
+            <GroupBox Header="Report Email" Canvas.Left="28" Canvas.Top="0" Width="245" Height="89" FontSize="20" FontWeight="Bold" Foreground="#FFFF434C">
+                <Canvas>
+                    <Button Name="ReportEmailBtn" Height="30" Width="130" Canvas.Left="10" Canvas.Top="15" Content="Start Service" Click="ReportEmailBtn_Click" FontSize="18"/>
+                    <Border Name="ReportTimeBorder" BorderBrush="White" CornerRadius="10" BorderThickness="2" Height="30" Width="69" Canvas.Left="154" Canvas.Top="15">
+                        <TextBlock Name="ReportTimeText" Text="0" HorizontalAlignment="Right" Margin="0,4,5,0" Foreground="#FF93BF19" FontSize="14"></TextBlock>
+                    </Border>
+                </Canvas>
+            </GroupBox>
+            <GroupBox Header="Report Email Console" Canvas.Left="28" Canvas.Top="105" Height="378" Width="245" FontSize="18" Foreground="#FF6ACEEB" FontFamily="Aharoni">
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="ReceivedText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="0,10,-2,0" VerticalAlignment="Top" Height="auto" Width="233" TextOptions.TextFormattingMode="Display" Foreground="#FFEDE8DF" FontFamily="Consolas" FontSize="14"/>
+                </ScrollViewer>
+            </GroupBox>
+            <GroupBox Header="UAT Services" Canvas.Left="298" Canvas.Top="0" Width="245" Height="89" FontSize="20" FontWeight="Bold" Foreground="#FFFF434C">
+                <Canvas>
+                    <Button Name="UATBtn" Height="30" Width="130" Canvas.Left="10" Canvas.Top="15" Content="Start Service" Click="UATBtn_Click" FontSize="18"></Button>
+                    <Border Name="UATTimeBorder" BorderBrush="White" CornerRadius="10" BorderThickness="2" Height="30" Width="69" Canvas.Left="154" Canvas.Top="15">
+                        <TextBlock Name="UATTimeText" Text="0" HorizontalAlignment="Right" Margin="0,4,5,0" Foreground="#FF93BF19" FontSize="14"></TextBlock>
+                    </Border>
+                </Canvas>
+            </GroupBox>
+            <GroupBox Header="UAT Service Console" Canvas.Left="298" Canvas.Top="105" Height="378" Width="245" FontSize="18" Foreground="#FF6ACEEB" FontFamily="Aharoni">
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="UATReceivedText" HorizontalAlignment="Left" TextWrapping="Wrap" Text=""  Margin="0,10,-2,0" VerticalAlignment="Top" Height="auto" Width="233" TextOptions.TextFormattingMode="Display" Foreground="#FFEDE8DF" FontSize="14" FontFamily="Consolas"/>
+                </ScrollViewer>
+            </GroupBox>
+            <GroupBox Header="CI" Canvas.Left="568" Canvas.Top="0" Width="245" Height="89" FontSize="20" FontWeight="Bold" Foreground="#FFFF434C">
+                <Canvas>
+                    <Button Name="CIBtn" Height="30" Width="130" Canvas.Left="10" Canvas.Top="15" Content="Start Service" Click="CIBtn_Click" FontSize="18"></Button>
+                    <Border Name="CITimeBorder" BorderBrush="White" CornerRadius="10" BorderThickness="2" Height="30" Width="69" Canvas.Left="154" Canvas.Top="15">
+                        <TextBlock Name="CITimeText" Text="0" HorizontalAlignment="Right" Margin="0,4,5,0" Foreground="#FF93BF19" FontSize="14"></TextBlock>
+                    </Border>
+                </Canvas>
+            </GroupBox>
+            <GroupBox Header="CI Console" Canvas.Left="568" Canvas.Top="105" Height="378" Width="245" FontSize="18" Foreground="#FF6ACEEB" FontFamily="Aharoni">
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <TextBlock Name="CIReceivedText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Margin="0,10,-2,0" VerticalAlignment="Top" Height="auto" Width="233" TextOptions.TextFormattingMode="Display" Foreground="#FFEDE8DF" FontSize="14" FontFamily="Consolas"/>
+                </ScrollViewer>
+            </GroupBox>
+        </Canvas>
+    </Border>
+</Window>

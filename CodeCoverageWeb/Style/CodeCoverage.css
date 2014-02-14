@@ -1,0 +1,192 @@
+﻿
+.TextBoxStyle {
+    margin-top:10px;
+    margin-left:6px;
+}
+
+#ServerNotFound {
+    margin-left:6px;
+    color:red;
+    font-weight:bold;
+}
+
+.codeBtn {
+    font-size:12px;
+}
+
+#TreeView1{  
+     margin-left:20px;
+}
+
+.bubble-bg {
+   
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -o-border-radius: 25px;
+    -ms-border-radius: 25px;
+    opacity: .98;
+    z-index: -10;
+    height:auto;
+    margin-left:150px;
+    margin-right:150px;
+    margin-top:50px;
+
+}
+#topbar {
+    width: 100.00%;
+    background-color: #fff;
+    height: 50px;
+    z-index: -10;
+    opacity: .98;
+    border-bottom: 1px solid #000;
+    margin-top:10px;
+    margin-left:-8px;
+
+}
+
+#logo {
+    font-weight: 400;
+    letter-spacing: 0px;
+    font-size: 30px;
+    margin-left: 10px;
+    font-family:'Microsoft YaHei';
+    
+}
+.preview {
+    text-transform: uppercase;
+    color: red;
+    font-weight: 700;
+    font-size: 15px;
+    margin-left:5px;
+}
+
+
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	text-shadow: 0 1px rgba(0,0,0,0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+    font-size:20px;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.5em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number{
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+	color: #a6e22e;
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value
+{
+	color: #e6db74;
+}
+
+
+.token.keyword{
+color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.preload {
+    margin-top:-35px;
+    margin-left:180px;
+    position:relative;
+}
+
+.CenterPart {
+
+    margin-left:auto;
+    margin-right:auto;
+    width:400px;
+    font-size:14px;
+    color:red;
+    font-weight:bold;
+
+}
+

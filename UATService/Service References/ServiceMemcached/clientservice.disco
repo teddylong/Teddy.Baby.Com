@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://memcachews.uat.qa.sh.ctripcorp.com/framework.memcached.service/clientservice.asmx?wsdl" docRef="http://memcachews.uat.qa.sh.ctripcorp.com/framework.memcached.service/clientservice.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://memcachews.uat.qa.sh.ctripcorp.com/framework.memcached.service/clientservice.asmx" xmlns:q1="http://tempuri.org/" binding="q1:ClientServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://memcachews.uat.qa.sh.ctripcorp.com/framework.memcached.service/clientservice.asmx" xmlns:q2="http://tempuri.org/" binding="q2:ClientServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
