@@ -48,7 +48,7 @@ namespace ReportBoss
             DataTable dt0 = SQLHelper.GetDataTableBySql(query0);
             DataTable dt1 = SQLHelper.GetDataTableBySql(query1);
 
-            return dt0.Rows[0][0].ToString() + "/" + dt1.Rows[0][0].ToString();
+            return dt0.Rows[0][0].ToString();
             
         }
 
