@@ -39,7 +39,7 @@ namespace GetFileSystem
                 root.AppendChild(element);
                 getDirFile(dir, element, xml, fileFormat);
             }
-            //root.AppendChild(xml);
+            
             xml.AppendChild(root);
             xml.Save("test.xml");
         }
