@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApplication1
+namespace TFSCoding
 {
     class Program
     {
@@ -42,8 +42,11 @@ namespace ConsoleApplication1
                     Console.WriteLine(" Team Project: " + projectNode.Resource.DisplayName);
                 }
             }
+            var tfs1 = TfsTeamProjectCollectionFactory.GetTeamProjectCollection(new Uri("https://192.168.83.70:8080/tfs/Framework"));
 
-
+            var vcServer = tfs1.GetService<VersionControlServer>();
+            Workspace mySpace = vcServer.GetWorkspace(@"E:\tfs2");
+            mySpace.Get();
 
 
 

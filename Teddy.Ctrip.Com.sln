@@ -33,73 +33,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMIConsole", "WMIConsole\WM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncFolder", "SyncFolder\SyncFolder.csproj", "{134C6458-3387-4934-8764-23F4F4410044}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{EC6D0F0B-D80A-4D34-B2DC-569A56C27CA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFSCoding", "TFSCoding\TFSCoding.csproj", "{EC6D0F0B-D80A-4D34-B2DC-569A56C27CA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metric_AUTOMATION", "Metric_AUTOMATION\Metric_AUTOMATION\Metric_AUTOMATION.csproj", "{C04004CC-30C9-4CCF-849E-22E83D0D08FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetFileSystem", "ConsoleApplication2\GetFileSystem.csproj", "{149FD804-2492-46E6-88FE-44D22E832312}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetFileSystem", "GetFileSystem\GetFileSystem.csproj", "{149FD804-2492-46E6-88FE-44D22E832312}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 19
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://192.168.83.70:8080/tfs/framework
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = CodeCoverage\\CodeCoverage.csproj
-		SccProjectName1 = CodeCoverage
-		SccLocalPath1 = CodeCoverage
-		SccProjectUniqueName2 = CodeCoverageWeb\\CodeCoverageWeb.csproj
-		SccProjectName2 = CodeCoverageWeb
-		SccLocalPath2 = CodeCoverageWeb
-		SccProjectUniqueName3 = ConsoleApplication1\\ConsoleApplication1.csproj
-		SccProjectName3 = ConsoleApplication1
-		SccLocalPath3 = ConsoleApplication1
-		SccProjectUniqueName4 = ConsoleApplication2\\GetFileSystem.csproj
-		SccProjectName4 = ConsoleApplication2
-		SccLocalPath4 = ConsoleApplication2
-		SccProjectUniqueName5 = ESB\\ESB.csproj
-		SccProjectName5 = ESB
-		SccLocalPath5 = ESB
-		SccProjectUniqueName6 = iStyle\\iStyle.csproj
-		SccProjectName6 = iStyle
-		SccLocalPath6 = iStyle
-		SccProjectUniqueName7 = JavaScriptStudy\\JavaScriptStudy.csproj
-		SccProjectName7 = JavaScriptStudy
-		SccLocalPath7 = JavaScriptStudy
-		SccProjectUniqueName8 = Metric_AUTOMATION\\Metric_AUTOMATION\\Metric_AUTOMATION.csproj
-		SccProjectName8 = Metric_AUTOMATION/Metric_AUTOMATION
-		SccLocalPath8 = Metric_AUTOMATION\\Metric_AUTOMATION
-		SccProjectUniqueName9 = MonitorCenter\\MonitorCenter.csproj
-		SccProjectName9 = MonitorCenter
-		SccLocalPath9 = MonitorCenter
-		SccProjectUniqueName10 = RemoteCmd\\RemoteCmd.csproj
-		SccProjectName10 = RemoteCmd
-		SccLocalPath10 = RemoteCmd
-		SccProjectUniqueName11 = Report.Email\\Report.Email.csproj
-		SccProjectName11 = Report.Email
-		SccLocalPath11 = Report.Email
-		SccProjectUniqueName12 = ReportBoss\\ReportBoss.csproj
-		SccProjectName12 = ReportBoss
-		SccLocalPath12 = ReportBoss
-		SccProjectUniqueName13 = SyncFolder\\SyncFolder.csproj
-		SccProjectName13 = SyncFolder
-		SccLocalPath13 = SyncFolder
-		SccProjectUniqueName14 = TestingConsole\\TestingConsole.csproj
-		SccProjectName14 = TestingConsole
-		SccLocalPath14 = TestingConsole
-		SccProjectUniqueName15 = ToBeChecked\\ToBeChecked.csproj
-		SccProjectName15 = ToBeChecked
-		SccLocalPath15 = ToBeChecked
-		SccProjectUniqueName16 = UATService\\UATService.csproj
-		SccProjectName16 = UATService
-		SccLocalPath16 = UATService
-		SccProjectUniqueName17 = WMIConsole\\WMIConsole.csproj
-		SccProjectName17 = WMIConsole
-		SccLocalPath17 = WMIConsole
-		SccProjectUniqueName18 = WriteSomething\\WriteSomething.csproj
-		SccProjectName18 = WriteSomething
-		SccLocalPath18 = WriteSomething
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

@@ -7,8 +7,8 @@
     <ProjectGuid>{EC6D0F0B-D80A-4D34-B2DC-569A56C27CA7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
-    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <RootNamespace>TFSCoding</RootNamespace>
+    <AssemblyName>TFSCoding</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
