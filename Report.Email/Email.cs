@@ -155,7 +155,7 @@ namespace Report.Email
                 string[] realName = nameProcess(fileName);
                 Email.Body += "<br/>";
                 Email.Body += "<div style=\"color:Red; font-family:Tahoma; font-size:30px\">" + realName[0] + ": <a style=\"font-size:20px;\" href=\"" + realName[1] + "\">点击可查看网页</a></div><br/>";
-                Email.Body += "<img src=\"" + files[i] + "\"/><br/>";
+                Email.Body += "<img height=\"auto\" src=\"" + files[i] + "\"/><br/>";
             }
             Email.Priority = MailPriority.Low;
             Email.Subject = mailSubject;

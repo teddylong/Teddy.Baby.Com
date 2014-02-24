@@ -10,7 +10,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.Coverage.Analysis;
+using System.Xml;
 
 namespace CodeCoverageService
 {
@@ -24,13 +24,47 @@ namespace CodeCoverageService
 
         protected override void OnStart(string[] args)
         {
-            Process.Start(StartProgram); 
+            if (ChangeConfigFile())
+            {
+                Process.Start(StartProgram);
+                LogService.WriteLog("Code Coverage Service Started...", EventLogEntryType.Warning);
+            }
         }
 
         protected override void OnStop()
         {
             Process[] proc = Process.GetProcessesByName("CodeCoverage");
             proc[0].Kill();
+            LogService.WriteLog("Code Coverage Service Stopped...", EventLogEntryType.Warning);
+        }
+
+
+        private bool ChangeConfigFile()
+        {
+            string filePath = @"D:\CodeCoverage\CodeCoverage.exe.config";
+            string machineName = System.Environment.MachineName;
+
+            if (File.Exists(filePath))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filePath);
+                XmlNodeList list = doc.SelectNodes("configuration/appSettings/add");
+                foreach (XmlNode node in list)
+                {
+                    if (node.Attributes["key"].Value == "SourceMachine")
+                    {
+                        node.Attributes["value"].Value = machineName;
+                    }
+                }
+                doc.Save(filePath);
+                LogService.WriteLog("Changed the Config file...", EventLogEntryType.Information);
+                return true;
+            }
+            else
+            {
+                LogService.WriteLog("Change the Config file failed...",EventLogEntryType.Error);
+                return false;
+            }
         }
     }
 }
