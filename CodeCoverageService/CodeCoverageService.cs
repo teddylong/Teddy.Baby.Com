@@ -41,7 +41,7 @@ namespace CodeCoverageService
 
         private bool ChangeConfigFile()
         {
-            string filePath = @"D:\CodeCoverage\CodeCoverage.exe.config";
+            string filePath = @"D:\apps\CodeCoverage\CodeCoverage.exe.config";
             string machineName = System.Environment.MachineName;
 
             if (File.Exists(filePath))
