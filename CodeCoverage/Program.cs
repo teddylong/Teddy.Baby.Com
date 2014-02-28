@@ -24,7 +24,6 @@ namespace CodeCoverage
         private static string outPutFolder = ConfigurationManager.AppSettings["outPutFolder"];
         static void Main(string[] args)
         {
-            
             while (true)
             {
                 Object thislock = new object();
@@ -56,6 +55,7 @@ namespace CodeCoverage
             }
             if (dt.Rows.Count > 0)
             {
+                LogService.WriteLog("Start Instrument...",EventLogEntryType.Information);
                 Instrument(jobList);
                 
             }
@@ -118,8 +118,11 @@ namespace CodeCoverage
                         p.StartInfo = startInfo;
                         p.Start();
                         p.WaitForExit();
-                        Console.WriteLine(p.StandardError.ReadToEnd());
-                        Console.WriteLine(p.StandardOutput.ReadToEnd());
+                        if (!p.StandardError.ReadToEnd().Equals(String.Empty))
+                        {
+                            LogService.WriteLog(p.StandardError.ReadToEnd(), EventLogEntryType.Error);
+                        }
+                        LogService.WriteLog(p.StandardOutput.ReadToEnd(),EventLogEntryType.Information);
                         
                     }
                 }
@@ -141,8 +144,8 @@ namespace CodeCoverage
         // vsperfmon /coverage /output: output.coverage /cs /user:Everyone
         public static void StartVSperf()
         {
-            string reportName = DateTime.Now.ToString("yyyyMMddhhmm") + ".coverage";
-            Process.Start(StartVSperfBAT, reportName);
+            Process.Start(StartVSperfBAT);
+            LogService.WriteLog("Build Coverage File...", EventLogEntryType.Information);
         }
         // vsperfcmd -shutdown
         public static void StopVSperf()
@@ -163,10 +166,17 @@ namespace CodeCoverage
             pVSPerfmonStop.WaitForExit();
             //Read the Error:
             string errorVSPerfmonStop = pVSPerfmonStop.StandardError.ReadToEnd();
-            Console.WriteLine(errorVSPerfmonStop);
+            if (!errorVSPerfmonStop.Equals(String.Empty))
+            {
+                LogService.WriteLog(errorVSPerfmonStop, EventLogEntryType.Error);
+            }
+        
             //Read the Output:
             string outputVSPerfmonStop = pVSPerfmonStop.StandardOutput.ReadToEnd();
-            Console.WriteLine(outputVSPerfmonStop);
+            if (!outputVSPerfmonStop.Equals(String.Empty))
+            {
+                LogService.WriteLog(outputVSPerfmonStop, EventLogEntryType.Information);
+            }
         }
         // taskkill /im iisexpress.exe
         // iisreset /stop
@@ -187,8 +197,10 @@ namespace CodeCoverage
             pStopIISExpress.StartInfo = stopIISExpress;
             pStopIISExpress.Start();
             pStopIISExpress.WaitForExit();
-            Console.WriteLine(pStopIISExpress.StandardError.ReadToEnd());
-            Console.WriteLine(pStopIISExpress.StandardOutput.ReadToEnd());
+            if (!pStopIISExpress.StandardOutput.ReadToEnd().Equals(String.Empty))
+            {
+                LogService.WriteLog(pStopIISExpress.StandardOutput.ReadToEnd(), EventLogEntryType.Information);
+            }
 
             var stopIIS = new ProcessStartInfo
             {
@@ -204,8 +216,10 @@ namespace CodeCoverage
             pStopIIS.StartInfo = stopIIS;
             pStopIIS.Start();
             pStopIIS.WaitForExit();
-            Console.WriteLine(pStopIIS.StandardError.ReadToEnd());
-            Console.WriteLine(pStopIIS.StandardOutput.ReadToEnd());
+            if (!pStopIIS.StandardOutput.ReadToEnd().Equals(String.Empty))
+            {
+                LogService.WriteLog(pStopIIS.StandardOutput.ReadToEnd(), EventLogEntryType.Information);
+            }
         }
         // iisreset /start
         public static void StartIIS()
@@ -224,18 +238,28 @@ namespace CodeCoverage
             pStartIIS.StartInfo = startIIS;
             pStartIIS.Start();
             pStartIIS.WaitForExit();
-            Console.WriteLine(pStartIIS.StandardError.ReadToEnd());
-            Console.WriteLine(pStartIIS.StandardOutput.ReadToEnd());
+            if (!pStartIIS.StandardOutput.ReadToEnd().Equals(String.Empty))
+            {
+                LogService.WriteLog(pStartIIS.StandardOutput.ReadToEnd(), EventLogEntryType.Information);
+            }
         }
         public static void CovToXMLFile()
         {
             string path = BaseFolder + @"\output.coverage";
-            if (File.Exists(path))
+            try
             {
-                CoverageInfo ci = CoverageInfo.CreateFromFile(path);
-                CoverageDS data = ci.BuildDataSet(null);
-                string outputName = DateTime.Now.ToString("yyyyMMddhhmm") + ".xml";
-                data.ExportXml(outPutFolder + @"\" + outputName);
+                if (File.Exists(path))
+                {
+                    CoverageInfo ci = CoverageInfo.CreateFromFile(path);
+                    CoverageDS data = ci.BuildDataSet(null);
+                    string outputName = DateTime.Now.ToString("yyyyMMddHHmm") + ".xml";
+                    data.ExportXml(outPutFolder + @"\" + outputName);
+                    LogService.WriteLog("Build Coverage XML file...", EventLogEntryType.Information);
+                }
+            }
+            catch (Exception e)
+            {
+                LogService.WriteLog("Build XML file failed..." + "\n" + e.ToString(),EventLogEntryType.Error);
             }
         }
 
@@ -263,6 +287,7 @@ namespace CodeCoverage
                     }
                 }
             }
+            LogService.WriteLog("Restored File...",EventLogEntryType.Information);
         }
     }
 }

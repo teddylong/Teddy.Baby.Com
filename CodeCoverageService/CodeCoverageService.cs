@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading;
@@ -21,12 +22,20 @@ namespace CodeCoverageService
         {
             InitializeComponent();
         }
-
+        
         protected override void OnStart(string[] args)
         {
             if (ChangeConfigFile())
             {
-                Process.Start(StartProgram);
+                //Process.Start(StartProgram);
+                Process p = new Process();
+                p.StartInfo.FileName = StartProgram;
+                p.StartInfo.Verb = "runas";
+                p.Start();
+                
+
+                //string errorVSPerfmonStop = pStart.StandardError.ReadToEnd();
+                //LogService.WriteLog(errorVSPerfmonStop, EventLogEntryType.Error); 
                 LogService.WriteLog("Code Coverage Service Started...", EventLogEntryType.Warning);
             }
         }
