@@ -265,29 +265,36 @@ namespace CodeCoverage
 
         public static void RestoredFile(DataTable dt)
         {
-            foreach (DataRow dr in dt.Rows)
+            try
             {
-                Job job = new Job();
-                job.ID = int.Parse(dr["ID"].ToString());
-                job.FileName = dr["FileName"].ToString();
-                job.Machine = dr["Machine"].ToString();
-                string[] files = job.FileName.Split(';');
-                for (int i=0; i<files.Length;i++)
+                foreach (DataRow dr in dt.Rows)
                 {
-                    
-                    if (File.Exists(files[i]) && File.Exists(files[i] + ".orig"))
+                    Job job = new Job();
+                    job.ID = int.Parse(dr["ID"].ToString());
+                    job.FileName = dr["FileName"].ToString();
+                    job.Machine = dr["Machine"].ToString();
+                    string[] files = job.FileName.Split(';');
+                    for (int i = 0; i < files.Length; i++)
                     {
-                        File.Delete(files[i]);
-                        File.Move(files[i] + ".orig",files[i]);
-                        if (File.Exists(files[i].Remove(files[i].IndexOf(".dll")) + ".instr.pdb"))
+
+                        if (File.Exists(files[i]) && File.Exists(files[i] + ".orig"))
                         {
-                            File.Delete(files[i].Remove(files[i].IndexOf(".dll")) + ".instr.pdb");
+                            File.Delete(files[i]);
+                            File.Move(files[i] + ".orig", files[i]);
+                            if (File.Exists(files[i].Remove(files[i].IndexOf(".dll")) + ".instr.pdb"))
+                            {
+                                File.Delete(files[i].Remove(files[i].IndexOf(".dll")) + ".instr.pdb");
+                            }
+
                         }
-                        
                     }
                 }
+                LogService.WriteLog("Restored File...", EventLogEntryType.Information);
             }
-            LogService.WriteLog("Restored File...",EventLogEntryType.Information);
+            catch (Exception e)
+            {
+                LogService.WriteLog("Restored File failed..." + "\n" + e.ToString(), EventLogEntryType.Error);
+            }
         }
     }
 }

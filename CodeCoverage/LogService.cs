@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace CodeCoverageService
+namespace CodeCoverage
 {
     public class LogService
     {
@@ -26,7 +26,7 @@ namespace CodeCoverageService
                 EventLog myLog = new EventLog();
                 myLog.Source = "CodeCoverageLog";
                 myLog.Log = "CodeCoverageLog";
-                myLog.WriteEntry(message,eventType);
+                myLog.WriteEntry(message, eventType);
             }
 
             string machineName = System.Environment.MachineName;
@@ -38,6 +38,7 @@ namespace CodeCoverageService
             File.AppendAllText(LogFolder + fileName, "\r\n");
             File.AppendAllText(LogFolder + fileName, DateTime.Now.ToString());
             File.AppendAllText(LogFolder + fileName, "\r\n");
+            
         }
     }
 }
