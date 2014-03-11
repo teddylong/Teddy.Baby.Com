@@ -13,46 +13,88 @@ namespace Report.Hotel
 {
     class Program
     {
-        private static string depName = ConfigurationManager.AppSettings["DepName"];
-        private static string emailList = ConfigurationManager.AppSettings["EmailList"];
+
         private static int DeadLine = int.Parse(ConfigurationManager.AppSettings["DeadLine"]);
+        private static int ReSetTime = int.Parse(ConfigurationManager.AppSettings["ReSetTime"]);
+        private static int CheckIntervals = int.Parse(ConfigurationManager.AppSettings["CheckIntervals"]);
+        public static Dictionary<string, List<string>> list = new Dictionary<string, List<string>>();
+        public static Dictionary<string, bool> status = new Dictionary<string, bool>();
+        
+        
+
+
         static void Main(string[] args)
         {
+            Support.SetupStatus();
+
             while (true)
             {
-                Result result = CheckRunStatus(depName);
-                if (result == Result.NotYet)
+                List<string> totalDep = Support.TotalDep();
+                foreach (string depName in totalDep)
                 {
-                    Thread.Sleep(3 * 60 * 1000);
-                    break;
-                }
-                else if (result == Result.Completed)
-                {
-                    List<string> list = ProcessEmailList(emailList);
-                    GetImg(depName, list);
-                }
-                else if (result == Result.NotCompleteButSend)
-                {
+                    if (!Support.CheckStatus(depName))
+                    {
+                        Result result = CheckRunStatus(depName);
+                        if (result == Result.NotYet)
+                        {
+                            Console.WriteLine("********************************");
+                            Console.WriteLine("Not Completed: " + depName + "  (" + DateTime.Now.ToString() + ")");
+                            Console.WriteLine("********************************");
+                        }
+                        else if (result == Result.Completed || result == Result.NotCompleteButSend)
+                        {
+                            list.Clear();
+                            list = Support.GetInfo(depName);
+                            foreach (var item in list)
+                            {
+                                List<string> infoList = item.Value;
+                                UpdateImgLink(infoList);
+                                GetImg(depName, infoList);
+                            }
+                            Support.OKStatus(depName);
+                            Console.WriteLine("********************************");
+                            Console.WriteLine("Completed: " + depName + "  (" + DateTime.Now.ToString() + ")");
+                            Console.WriteLine("********************************");
+                        }
+                        else
+                        {
 
+                        }
+                    }
                 }
-                else
-                { 
-                    
+                Thread.Sleep(CheckIntervals * 60 * 1000);
+                if (DateTime.Now.Hour == ReSetTime)
+                {
+                    Support.ReSetStatus();
                 }
             }
         }
 
-        private static List<string> ProcessEmailList(string emaillist)
+        
+
+        
+        private static void UpdateImgLink(List<string> list)
         {
-            List<string> result = new List<string>();
-            string[] temp = emailList.Split(';');
-            for (int i = 0; i < temp.Length; i++)
+            if (list.Count == 2)
             {
-                result.Add(temp[i]);
+                string LastRunID = GetLatestRunID();
+                list[1] = list[1].Trim() + LastRunID;
             }
-            return result;
         }
 
+        private static string GetLatestRunID()
+        {
+            string sendDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            string query0 = @"select max(a.runid) from[ATDataBase].[dbo].[CI_LOG_RUN] a inner join ci_log_job b on a.runid=b.runid where b.casecount > 0 and a.RunType=0 and b.type=0 and Convert(nvarchar(10),a.GmtCreate,23)='" + sendDate + "'";
+            //string query1 = @"select max(a.runid) from[ATDataBase].[dbo].[CI_LOG_RUN] a inner join ci_log_job b on a.runid=b.runid where b.casecount > 0 and a.RunType=0 and b.type=1 and Convert(nvarchar(10),a.GmtCreate,23)='" + sendDate + "'";
+
+
+            DataTable dt0 = SQLHelper.GetDataTableBySql(query0);
+            //DataTable dt1 = SQLHelper.GetDataTableBySql(query1);
+
+            return dt0.Rows[0][0].ToString();
+
+        } 
         private static Result CheckRunStatus(string dep)
         {
             string sendDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
@@ -64,7 +106,7 @@ namespace Report.Hotel
             string queryResult = @"select COUNT(*) from [ATDataBase].[dbo].[ci_log_job] where runid = " + runID + " and ( Jobname like '" + apiJobName + "' or Jobname like '" + uiJobName + "') and GmtEnd is null";
             DataTable dtResult = SQLHelper.GetDataTableBySql(queryResult);
 
-            if (DateTime.Now.Hour > 17)
+            if (DateTime.Now.Hour > DeadLine)
             {
                 return Result.NotCompleteButSend;
             }
@@ -155,8 +197,33 @@ namespace Report.Hotel
 
 
             Console.WriteLine("Uploaded to the server...");
-            string emailTitle = depName + "自动化执行结果" + " （" + DateTime.Now.ToString() + ")";
+            string emailTitle = ChangeToChinese(depName) + "自动化执行结果" + " （" + DateTime.Now.ToString() + ")";
             Email.SendEmail(depName, emailTitle, emailAccouont, dic);
+        }
+
+
+        private static string ChangeToChinese(string dep)
+        { 
+            switch(dep)
+            {
+                case "Hotel":
+                    return "酒店";
+                case "Flight":
+                    return "机票";
+                case "PF":
+                    return "公共服务";
+                case "Corp":
+                    return "商旅";
+                case "NB":
+                    return "营销高端";
+                case "Vacations":
+                    return "度假";
+                case "YOU":
+                    return "攻略社区";
+                default:
+                    return "";
+
+            }
         }
     }
 }

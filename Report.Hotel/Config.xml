@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<root>
+  <dep>
+    <name>Flight</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10003&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>Hotel</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10004&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>PF</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10005&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>Corp</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10006&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>NB</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10008&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>Vacations</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10009&runid=
+        ]]>
+      </link>
+
+    </website>
+  </dep>
+  <dep>
+    <name>YOU</name>
+    <email>yqlong@ctrip.com</email>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10010&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+</root>

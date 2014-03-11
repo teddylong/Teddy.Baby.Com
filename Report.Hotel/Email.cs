@@ -95,25 +95,25 @@ namespace Report.Hotel
             int depNumber = 0;
             switch (depName)
             {
-                case "机票":
+                case "Flight":
                     depNumber = 10003;
                     return getData(depNumber);
-                case "酒店":
+                case "Hotel":
                     depNumber = 10004;
                     return getData(depNumber);
-                case "商旅":
+                case "Corp":
                     depNumber = 10006;
                     return getData(depNumber);
-                case "营销高端":
+                case "NB":
                     depNumber = 10008;
                     return getData(depNumber);
-                case "公共服务":
+                case "PF":
                     depNumber = 10005;
                     return getData(depNumber);
-                case "度假":
+                case "Vacations":
                     depNumber = 10009;
                     return getData(depNumber);
-                case "攻略社区":
+                case "YOU":
                     depNumber = 10010;
                     return getData(depNumber);
                 default:
