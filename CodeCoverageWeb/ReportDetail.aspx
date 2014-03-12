@@ -32,7 +32,7 @@
                                          <asp:HyperLink ID="hpLink" runat="server" 
                                     Font-Bold="True" Font-Underline="True" ForeColor="#3366FF" 
                                              Text='<%# bind("ModuleName") %>' ></asp:HyperLink>
-                                             <asp:Label ID="hlable" runat="server" Text = '<%# bind("Module_Id") %>'></asp:Label>
+                                             <asp:Label ID="hlable" runat="server" Text = '<%# bind("ModuleName") %>'></asp:Label>
                                     </ItemTemplate>
                                     <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                 </asp:TemplateField>
@@ -82,7 +82,7 @@
                                         <asp:HyperLink ID="hpLink" runat="server" 
                                 Font-Bold="True" Font-Underline="True" ForeColor="#3366FF" 
                                             Text='<%# bind("ClassName") %>' ></asp:HyperLink>
-                                            <asp:Label ID="hlable" runat="server" Text = '<%# bind("Class_Id") %>'></asp:Label>
+                                            <asp:Label ID="hlable" runat="server" Text = '<%# bind("ClassKeyName") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:TemplateField>
@@ -125,9 +125,62 @@
                         Font-Size="Medium" Font-Strikeout="False" Font-Underline="False"
                         HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDataBound="GridView2_RowDataBound" >      
                         <Columns>
-                            <asp:BoundField  DataField ="MethodName" HeaderText="MethodName" >
-                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" ForeColor="Blue" Font-Size="Small" Font-Bold="true" />
+                             <asp:TemplateField HeaderText="NameSpaceKeyName">
+                                <ItemTemplate>
+                                        <asp:HyperLink ID="hpLink" runat="server" 
+                                Font-Bold="True" Font-Underline="True" ForeColor="#3366FF" 
+                                            Text='<%# bind("NameSpaceKeyName") %>' ></asp:HyperLink>
+                                            <asp:Label ID="hlable" runat="server" Text = '<%# bind("NameSpaceKeyName") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:TemplateField>
+                            
+                            
+                         
+                            <asp:BoundField  DataField="LinesCovered" HeaderText="LinesCovered" >
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
+                            <asp:BoundField  DataField="LinesNotCovered" HeaderText="LinesNotCovered">
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                            <asp:TemplateField HeaderText="Lines%">
+                                <ItemTemplate>
+                                        <asp:Label ID="Lines100Method" runat="server" Font-Bold="True" ForeColor="#3366FF"></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:TemplateField>
+                            <asp:BoundField  DataField="BlocksCovered" HeaderText="BlocksCovered">
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                            <asp:BoundField  DataField="BlocksNotCovered" HeaderText="BlocksNotCovered">
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                            <asp:TemplateField HeaderText="Blocks%">
+                                <ItemTemplate>
+                                        <asp:Label ID="Blocks100Method" runat="server" Font-Bold="True" ForeColor="#3366FF"></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:TemplateField>
+                        </Columns>
+                        
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White"
+                            Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
+                            Font-Underline="False" HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:GridView>
+                </div>
+
+            <div id="MethodDiv" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
+                    <asp:GridView ID="MethodGridView" runat="server" BackColor="White" 
+                        BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                        Font-Bold="False" Font-Italic="False" Font-Names="Microsoft YaHei" Font-Overline="False"
+                        Font-Size="Medium" Font-Strikeout="False" Font-Underline="False"
+                        HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDataBound="MethodGridView_RowDataBound"  >      
+                        <Columns> 
+                            <asp:BoundField  DataField="MethodName" HeaderText="MethodName" >
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                         
                             <asp:BoundField  DataField="LinesCovered" HeaderText="LinesCovered" >
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>

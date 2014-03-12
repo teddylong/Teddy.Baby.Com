@@ -16,13 +16,18 @@ namespace CodeCoverageWeb
            
             
             ViewState["ReportPath"] = Request.QueryString["ReportPath"];
-            
-
             ViewState["ID"] = Request.QueryString["ID"];
+            ViewState["NameSpaceID"] = Request.QueryString["NameSpaceID"];
             ViewState["ClassID"] = Request.QueryString["ClassID"];
+
             if (ViewState["ID"] != null)
             {
                 var dd = ViewState["ID"].ToString();
+                ShowNameSpaceReport(dd);
+            }
+            if (ViewState["NameSpaceID"] != null)
+            {
+                var dd = ViewState["NameSpaceID"].ToString();
                 ShowCLassReport(dd);
             }
             if (ViewState["ClassID"] != null)
@@ -30,7 +35,7 @@ namespace CodeCoverageWeb
                 var dd = ViewState["ClassID"].ToString();
                 ShowMethodReport(dd);
             }
-            if (ViewState["ClassID"] == null && ViewState["ID"] == null)
+            if (ViewState["ClassID"] == null && ViewState["ID"] == null && ViewState["NameSpaceID"] == null)
             {
                 ShowTotalReport();
             }
@@ -42,9 +47,35 @@ namespace CodeCoverageWeb
                 DataTable dt = new DataTable();
                 DataSet myDataSet = new DataSet();
                 myDataSet.ReadXml(XMLFILE);
-                string query = string.Format("Class_Id={0}", id);
+                string query = string.Format("ClassKeyName='{0}'", id);
                 DataTable dtv = myDataSet.Tables["Method"];
                 DataRow[] result = myDataSet.Tables["Method"].Select(query);
+                DataTable xxx = ToDataTable(result);
+                GridView1.Visible = false;
+                GridView2.Visible = false;
+                NoReportLabel.Visible = false;
+
+                MethodGridView.DataSource = xxx;
+                MethodGridView.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        protected void ShowNameSpaceReport(string id)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                DataSet myDataSet = new DataSet();
+                myDataSet.ReadXml(XMLFILE);
+                string query = string.Format("ModuleName='{0}'", id);
+                DataTable dtv = myDataSet.Tables["NameSpaceTable"];
+                DataRow[] result = myDataSet.Tables["NameSpaceTable"].Select(query);
                 DataTable xxx = ToDataTable(result);
                 GridView1.Visible = false;
                 NoReportLabel.Visible = false;
@@ -58,6 +89,7 @@ namespace CodeCoverageWeb
             }
 
         }
+
 
         protected void ShowTotalReport()
         {
@@ -108,7 +140,7 @@ namespace CodeCoverageWeb
                 DataTable dt = new DataTable();
                 DataSet myDataSet = new DataSet();
                 myDataSet.ReadXml(XMLFILE);
-                string query = string.Format("NamespaceTable_Id={0}", id);
+                string query = string.Format("NameSpaceKeyName='{0}'", id);
                 DataTable dtv = myDataSet.Tables["Class"];
                 DataRow[] result = myDataSet.Tables["Class"].Select(query);
                 DataTable xxx = ToDataTable(result);
@@ -215,6 +247,9 @@ namespace CodeCoverageWeb
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                HyperLink hKLink = (HyperLink)e.Row.FindControl("hpLink");
+                Label lID = (Label)e.Row.FindControl("hlable");
+
                 Label Block100 = (Label)e.Row.FindControl("Blocks100Method");
                 var d1 = e.Row.Cells[4].Text;
                 var d2 = e.Row.Cells[5].Text;
@@ -244,6 +279,8 @@ namespace CodeCoverageWeb
                 {
                     Line100.Text = LineResult;
                 }
+                hKLink.Attributes["href"] = @"ReportDetail.aspx?NameSpaceID=" + lID.Text;
+                lID.Visible = false;
                 
             }
         }
@@ -251,6 +288,44 @@ namespace CodeCoverageWeb
         protected void BackBtn_Click(object sender, EventArgs e)
         {
             Response.Write("<script language=javascript>history.go(-2);</script>");
+        }
+
+        protected void MethodGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+               
+                Label Block100 = (Label)e.Row.FindControl("Blocks100Method");
+                var d1 = e.Row.Cells[4].Text;
+                var d2 = e.Row.Cells[5].Text;
+
+                string BlockResult = (float.Parse(d1.ToString()) / (float.Parse(d1) + float.Parse(d2)) * 100).ToString("0.00") + "%";
+                if (BlockResult == "0.00%")
+                {
+                    Block100.Text = "---";
+                    Block100.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    Block100.Text = BlockResult;
+                }
+
+                Label Line100 = (Label)e.Row.FindControl("Lines100Method");
+                var d3 = e.Row.Cells[1].Text;
+                var d4 = e.Row.Cells[2].Text;
+
+                string LineResult = (float.Parse(d3.ToString()) / (float.Parse(d3) + float.Parse(d4)) * 100).ToString("0.00") + "%";
+                if (LineResult == "0.00%")
+                {
+                    Line100.Text = "---";
+                    Line100.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    Line100.Text = LineResult;
+                }
+
+            }
         }
     }
 }

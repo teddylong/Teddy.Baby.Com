@@ -87,7 +87,7 @@ namespace CodeCoverage
                 StartIIS();
                 Thread.Sleep(2000);
                 CovToXMLFile();
-                Thread.Sleep(3000);
+                Thread.Sleep(20000);
                 RestoredFile(dt);
             }
         }
