@@ -6,18 +6,20 @@
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10003&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10003&runid=
         ]]>
       </link>
     </website>
   </dep>-->
+
+  
   <dep>
     <name>Hotel</name>
     <email>Hotel_QA@ctrip.com</email>
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10004&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10004&runid=
         ]]>
       </link>
     </website>
@@ -28,7 +30,7 @@
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10005&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10005&runid=
         ]]>
       </link>
     </website>
@@ -39,7 +41,7 @@
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10006&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10006&runid=
         ]]>
       </link>
     </website>
@@ -50,7 +52,7 @@
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10008&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10008&runid=
         ]]>
       </link>
     </website>
@@ -61,7 +63,7 @@
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10009&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10009&runid=
         ]]>
       </link>
 
@@ -73,7 +75,7 @@
     <website>
       <link name="ImageLink">
         <![CDATA[
-        http://autotest/Pages/Reports/CILogRunReport.aspx?depid=10010&runid=
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10010&runid=
         ]]>
       </link>
     </website>
