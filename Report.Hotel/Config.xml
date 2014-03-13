@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <root>
-  <dep>
+  <!--<dep>
     <name>Flight</name>
     <email>yqlong@ctrip.com</email>
     <website>
@@ -10,10 +10,10 @@
         ]]>
       </link>
     </website>
-  </dep>
+  </dep>-->
   <dep>
     <name>Hotel</name>
-    <email>yqlong@ctrip.com</email>
+    <email>Hotel_QA@ctrip.com</email>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -22,7 +22,7 @@
       </link>
     </website>
   </dep>
-  <dep>
+  <!--<dep>
     <name>PF</name>
     <email>yqlong@ctrip.com</email>
     <website>
@@ -77,5 +77,5 @@
         ]]>
       </link>
     </website>
-  </dep>
+  </dep>-->
 </root>
