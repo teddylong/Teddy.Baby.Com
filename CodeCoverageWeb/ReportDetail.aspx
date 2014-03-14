@@ -19,8 +19,8 @@
             </div>  
         </div>
         <div>
-            <div id="DataGridID" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
-                        <asp:GridView ID="ReportData" runat="server" BackColor="White" 
+            <div id="ReportDiv" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
+                        <asp:GridView ID="ReportGridView" runat="server" BackColor="White" 
                             BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                             Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Names="Microsoft YaHei"
                             Font-Size="Medium" Font-Strikeout="False" Font-Underline="False"
@@ -69,8 +69,8 @@
                                 Font-Underline="False" HorizontalAlign="Center" VerticalAlign="Middle" />
                         </asp:GridView>
                     </div>
-            <div id="Div1" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" 
+            <div id="ClassDiv" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
+                <asp:GridView ID="ClassGridView" runat="server" BackColor="White" 
                         BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                         Font-Bold="False" Font-Italic="False" Font-Names="Microsoft YaHei" Font-Overline="False"
                         Font-Size="Medium" Font-Strikeout="False" Font-Underline="False"
@@ -118,12 +118,12 @@
                             Font-Underline="False" HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:GridView>
             </div>
-            <div id="Div2" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
-                    <asp:GridView ID="GridView2" runat="server" BackColor="White" 
+            <div id="NameSpaceDiv" style="margin: 10px; margin-left: -50px; margin-top: 20px;">
+                    <asp:GridView ID="NameSpaceGridView" runat="server" BackColor="White" 
                         BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                         Font-Bold="False" Font-Italic="False" Font-Names="Microsoft YaHei" Font-Overline="False"
                         Font-Size="Medium" Font-Strikeout="False" Font-Underline="False"
-                        HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDataBound="GridView2_RowDataBound" >      
+                        HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDataBound="NameSpaceData_RowDataBound" >      
                         <Columns>
                              <asp:TemplateField HeaderText="NameSpaceKeyName">
                                 <ItemTemplate>
@@ -134,9 +134,6 @@
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:TemplateField>
-                            
-                            
-                         
                             <asp:BoundField  DataField="LinesCovered" HeaderText="LinesCovered" >
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
@@ -175,7 +172,7 @@
                         BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                         Font-Bold="False" Font-Italic="False" Font-Names="Microsoft YaHei" Font-Overline="False"
                         Font-Size="Medium" Font-Strikeout="False" Font-Underline="False"
-                        HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDataBound="MethodGridView_RowDataBound"  >      
+                        HorizontalAlign="Center" AutoGenerateColumns="False" OnRowDataBound="MethodData_RowDataBound"  >      
                         <Columns> 
                             <asp:BoundField  DataField="MethodName" HeaderText="MethodName" >
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
