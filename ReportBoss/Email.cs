@@ -116,6 +116,24 @@ namespace ReportBoss
                 case "攻略社区":
                     depNumber = 10010;
                     return getData(depNumber);
+                case "国际网站":
+                    depNumber = 10012;
+                    return getData(depNumber);
+                case "地面":
+                    depNumber = 10013;
+                    return getData(depNumber);
+                case "用车":
+                    depNumber = 10016;
+                    return getData(depNumber);
+                case "邮轮":
+                    depNumber = 10011;
+                    return getData(depNumber);
+                case "套餐":
+                    depNumber = 10014;
+                    return getData(depNumber);
+                case "火车票":
+                    depNumber = 10015;
+                    return getData(depNumber);
                 default:
                     return null;          
             }
