@@ -65,29 +65,39 @@ namespace Report.Hotel
 
         public static bool SendEmail(string depName, string title, string emailAccount, Dictionary<string, string> dic)
         {
-            List<int> data = new List<int>();
-            if (!depName.Equals(String.Empty))
+            try
             {
-                data = getDataBase(depName);
+                List<int> data = new List<int>();
+                if (!depName.Equals(String.Empty))
+                {
+                    data = getDataBase(depName);
+                }
+                MailMessage Email = new MailMessage();
+                Email.IsBodyHtml = true;
+                Email.BodyEncoding = System.Text.Encoding.UTF8;
+                Email.Body = "<div style=\"background-color:#3385FF; color:White; text-align:center; margin-left:auto; margin-right:auto; font-size:large; font-family:@微软雅黑; font-weight:bold;\">" + title + "</div>";
+
+                Email.Body += "<div style=\"color:red;font-size:13px;\">(点击图片可link到Portal Site)</div>";
+                Email.Body += "<div style=\"font-size:16px; color:blue;\">成功运行Job数/总Job数 ---> " + data[0] + "/" + data[1] + "</div>";
+
+                foreach (var item in dic)
+                {
+                    Email.Body += "<a style=\"text-align:center; margin-left:auto; margin-right:auto;\" href = " + item.Key + ">" + "<img src=\"" + item.Value + "\"/></a><br/><br/>";
+                }
+
+                Email.Priority = MailPriority.Low;
+                Email.Subject = title;
+                Email.SubjectEncoding = Encoding.UTF8;
+                Send(emailAccount, Email.Subject, Email.Body);
+                return true;
             }
-            MailMessage Email = new MailMessage();
-            Email.IsBodyHtml = true;
-            Email.BodyEncoding = System.Text.Encoding.UTF8;
-            Email.Body = "<div style=\"background-color:#3385FF; color:White; text-align:center; margin-left:auto; margin-right:auto; font-size:large; font-family:@微软雅黑; font-weight:bold;\">" + title + "</div>";
-
-            Email.Body += "<div style=\"color:red;font-size:13px;\">(点击图片可link到Portal Site)</div>";
-            Email.Body += "<div style=\"font-size:16px; color:blue;\">成功运行Job数/总Job数 ---> " + data[0] + "/" + data[1] + "</div>";
-
-            foreach (var item in dic)
+            catch (Exception e)
             {
-                Email.Body += "<a style=\"text-align:center; margin-left:auto; margin-right:auto;\" href = " + item.Key + ">" + "<img src=\"" + item.Value + "\"/></a><br/><br/>";
+                Console.WriteLine("Something wrong happened in Email.SendEmail...");
+                Console.WriteLine(e.ToString());
+                Console.WriteLine(DateTime.Now.ToString());
+                return false;
             }
-
-            Email.Priority = MailPriority.Low;
-            Email.Subject = title;
-            Email.SubjectEncoding = Encoding.UTF8;
-            Send(emailAccount, Email.Subject, Email.Body);
-            return true;
         }
 
         public static List<int> getDataBase(string depName)

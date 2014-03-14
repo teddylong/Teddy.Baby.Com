@@ -12,26 +12,35 @@ namespace Report.Hotel
         public static Dictionary<string, bool> status = new Dictionary<string, bool>();
         public static Dictionary<string, List<string>> GetInfo(string dep)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Config.xml");
-            foreach (XmlNode node in doc.SelectNodes("//dep"))
+            try
             {
-
-                if (node.SelectSingleNode("name").InnerText == dep)
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Config.xml");
+                foreach (XmlNode node in doc.SelectNodes("//dep"))
                 {
-                    List<string> temp = new List<string>();
-                    string depName = node.SelectSingleNode("name").InnerText;
-                    string emailAccount = node.SelectSingleNode("email").InnerText;
-                    temp.Add(emailAccount);
-                    foreach (XmlNode tempNode in node.SelectNodes("website/link"))
+
+                    if (node.SelectSingleNode("name").InnerText == dep)
                     {
-                        string tempLink = tempNode.InnerText;
-                        temp.Add(tempLink);
+                        List<string> temp = new List<string>();
+                        string depName = node.SelectSingleNode("name").InnerText;
+                        string emailAccount = node.SelectSingleNode("email").InnerText;
+                        temp.Add(emailAccount);
+                        foreach (XmlNode tempNode in node.SelectNodes("website/link"))
+                        {
+                            string tempLink = tempNode.InnerText;
+                            temp.Add(tempLink);
+                        }
+                        list.Add(depName, temp);
                     }
-                    list.Add(depName, temp);
                 }
+                return list;
             }
-            return list;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                Console.WriteLine(DateTime.Now.ToString());
+                return null;
+            }
         }
 
         public static bool CheckStatus(string dep)
@@ -42,7 +51,7 @@ namespace Report.Hotel
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -62,13 +71,24 @@ namespace Report.Hotel
                 SetupStatus();
             }
         }
-        public static void SetupStatus()
+        public static bool SetupStatus()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Config.xml");
-            foreach (XmlNode node in doc.SelectNodes("//dep/name"))
+            try
             {
-                status.Add(node.InnerText, false);
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Config.xml");
+                foreach (XmlNode node in doc.SelectNodes("//dep/name"))
+                {
+                    status.Add(node.InnerText, false);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                status = null;
+                Console.WriteLine(e.ToString());
+                Console.WriteLine(DateTime.Now.ToString());
+                return false;
             }
         }
 
@@ -76,14 +96,23 @@ namespace Report.Hotel
 
         public static List<string> TotalDep()
         {
-            List<string> result = new List<string>();
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Config.xml");
-            foreach (XmlNode node in doc.SelectNodes("//dep/name"))
+            try
             {
-                result.Add(node.InnerText);
+                List<string> result = new List<string>();
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Config.xml");
+                foreach (XmlNode node in doc.SelectNodes("//dep/name"))
+                {
+                    result.Add(node.InnerText);
+                }
+                return result;
             }
-            return result;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                Console.WriteLine(DateTime.Now.ToString());
+                return null;
+            }
         }
     }
 }
