@@ -147,7 +147,7 @@ namespace Report.Hotel
                 string queryResult = @"select COUNT(*) from [ATDataBase].[dbo].[ci_log_job] where runid = " + runID + " and ( Jobname like '" + apiJobName + "' or Jobname like '" + uiJobName + "') and GmtEnd is null";
                 DataTable dtResult = SQLHelper.GetDataTableBySql(queryResult);
 
-                if (DateTime.Now.Hour > DeadLine)
+                if (DateTime.Now.Hour >= DeadLine)
                 {
                     return Result.NotCompleteButSend;
                 }
@@ -286,7 +286,6 @@ namespace Report.Hotel
                     return "攻略社区";
                 default:
                     return "";
-
             }
         }
     }
