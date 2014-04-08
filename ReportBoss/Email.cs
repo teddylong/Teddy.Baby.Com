@@ -104,13 +104,13 @@ namespace ReportBoss
                 case "商旅":
                     depNumber = 10006;
                     return getData(depNumber);
-                case "营销高端":
+                case "营销":
                     depNumber = 10008;
                     return getData(depNumber);
                 case "公共服务":
                     depNumber = 10005;
                     return getData(depNumber);
-                case "度假":
+                case "团队":
                     depNumber = 10009;
                     return getData(depNumber);
                 case "攻略社区":

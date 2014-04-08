@@ -45,7 +45,7 @@
     </website>
   </dep>
   <dep>
-    <name>营销高端</name>
+    <name>营销</name>
     <email>ke_wang@Ctrip.com;hling@Ctrip.com;panwei@Ctrip.com;xj_wei@Ctrip.com;jhji@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
     <website>
       <link name="ImageLink">
@@ -56,7 +56,7 @@
     </website>
   </dep>
   <dep>
-    <name>度假</name>
+    <name>团队</name>
     <email>shenwm@Ctrip.com;kmgu@Ctrip.com;xhzhou@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
     <website>
       <link name="ImageLink">
