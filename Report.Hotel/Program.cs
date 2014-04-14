@@ -136,37 +136,48 @@ namespace Report.Hotel
         } 
         private static Result CheckRunStatus(string dep)
         {
-            try
-            {
-                string sendDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
-                string queryRunID = @"select max(a.runid) from [ATDataBase].[dbo].[CI_LOG_RUN] a inner join ci_log_job b on a.runid=b.runid where b.casecount > 0 and a.RunType=0 and b.type=0 and Convert(nvarchar(10),a.GmtCreate,23)='" + sendDate + "'";
-                DataTable dtRunID = SQLHelper.GetDataTableBySql(queryRunID);
-                string runID = dtRunID.Rows[0][0].ToString();
-                string apiJobName = "API." + dep + "%";
-                string uiJobName = "UI." + dep + "%";
-                string queryResult = @"select COUNT(*) from [ATDataBase].[dbo].[ci_log_job] where runid = " + runID + " and ( Jobname like '" + apiJobName + "' or Jobname like '" + uiJobName + "') and GmtEnd is null";
-                DataTable dtResult = SQLHelper.GetDataTableBySql(queryResult);
+            //try
+            //{
+            //    string sendDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            //    string queryRunID = @"select max(a.runid) from [ATDataBase].[dbo].[CI_LOG_RUN] a inner join ci_log_job b on a.runid=b.runid where b.casecount > 0 and a.RunType=0 and b.type=0 and Convert(nvarchar(10),a.GmtCreate,23)='" + sendDate + "'";
+            //    DataTable dtRunID = SQLHelper.GetDataTableBySql(queryRunID);
+            //    string runID = dtRunID.Rows[0][0].ToString();
+            //    string apiJobName = "API." + dep + "%";
+            //    string uiJobName = "UI." + dep + "%";
+            //    string queryResult = @"select COUNT(*) from [ATDataBase].[dbo].[ci_log_job] where runid = " + runID + " and ( Jobname like '" + apiJobName + "' or Jobname like '" + uiJobName + "') and GmtEnd is null";
+            //    DataTable dtResult = SQLHelper.GetDataTableBySql(queryResult);
 
-                if (DateTime.Now.Hour >= DeadLine)
-                {
-                    return Result.NotCompleteButSend;
-                }
-                else if (int.Parse(dtResult.Rows[0][0].ToString()) == 0)
-                {
-                    return Result.Completed;
-                }
-                else if (int.Parse(dtResult.Rows[0][0].ToString()) > 0)
-                {
-                    return Result.NotYet;
-                }
-                return Result.Default;
-            }
-            catch (Exception e)
+            //    if (DateTime.Now.Hour >= DeadLine)
+            //    {
+            //        return Result.NotCompleteButSend;
+            //    }
+            //    else if (int.Parse(dtResult.Rows[0][0].ToString()) == 0)
+            //    {
+            //        return Result.Completed;
+            //    }
+            //    else if (int.Parse(dtResult.Rows[0][0].ToString()) > 0)
+            //    {
+            //        return Result.NotYet;
+            //    }
+            //    return Result.Default;
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.ToString());
+            //    Console.WriteLine(DateTime.Now.ToString());
+            //    return Result.Default;
+            //}
+
+            // Change to 17:00 
+            if (DateTime.Now.Hour >= DeadLine)
             {
-                Console.WriteLine(e.ToString());
-                Console.WriteLine(DateTime.Now.ToString());
-                return Result.Default;
+                return Result.Completed;
             }
+            else
+            {
+                return Result.NotYet;
+            }
+
         }
 
         public enum Result
@@ -246,7 +257,7 @@ namespace Report.Hotel
 
 
                 Console.WriteLine("Uploaded to the server...");
-                string emailTitle = ChangeToChinese(depName) + "自动化执行结果" + " （" + DateTime.Now.ToString() + ")";
+                string emailTitle = depName + " 自动化执行结果" + " （" + DateTime.Now.ToString() + ")";
                 if (Email.SendEmail(depName, emailTitle, emailAccouont, dic))
                 {
                     return true;
@@ -262,30 +273,6 @@ namespace Report.Hotel
                 Console.WriteLine(e.ToString());
                 Console.WriteLine(DateTime.Now.ToString());
                 return false;
-            }
-        }
-
-
-        private static string ChangeToChinese(string dep)
-        { 
-            switch(dep)
-            {
-                case "Hotel":
-                    return "酒店";
-                case "Flight":
-                    return "机票";
-                case "PF":
-                    return "公共服务";
-                case "Corp":
-                    return "商旅";
-                case "NB":
-                    return "营销高端";
-                case "Vacations":
-                    return "度假";
-                case "YOU":
-                    return "攻略社区";
-                default:
-                    return "";
             }
         }
     }

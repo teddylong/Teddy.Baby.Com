@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -10,27 +11,32 @@ namespace Report.Hotel
     {
         public static Dictionary<string, List<string>> list = new Dictionary<string, List<string>>();
         public static Dictionary<string, bool> status = new Dictionary<string, bool>();
+        private static string XMLPath = ConfigurationManager.AppSettings["XMLPath"];
         public static Dictionary<string, List<string>> GetInfo(string dep)
         {
             try
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Config.xml");
+                doc.Load(XMLPath);
                 foreach (XmlNode node in doc.SelectNodes("//dep"))
                 {
-
-                    if (node.SelectSingleNode("name").InnerText == dep)
+                    string[] daySend = node.SelectSingleNode("day").InnerText.Split(',');
+                    bool sendToday = IsSendToday(daySend);
+                    if (sendToday)
                     {
-                        List<string> temp = new List<string>();
-                        string depName = node.SelectSingleNode("name").InnerText;
-                        string emailAccount = node.SelectSingleNode("email").InnerText;
-                        temp.Add(emailAccount);
-                        foreach (XmlNode tempNode in node.SelectNodes("website/link"))
+                        if (node.SelectSingleNode("name").InnerText == dep)
                         {
-                            string tempLink = tempNode.InnerText;
-                            temp.Add(tempLink);
+                            List<string> temp = new List<string>();
+                            string depName = node.SelectSingleNode("name").InnerText;
+                            string emailAccount = node.SelectSingleNode("email").InnerText;
+                            temp.Add(emailAccount);
+                            foreach (XmlNode tempNode in node.SelectNodes("website/link"))
+                            {
+                                string tempLink = tempNode.InnerText;
+                                temp.Add(tempLink);
+                            }
+                            list.Add(depName, temp);
                         }
-                        list.Add(depName, temp);
                     }
                 }
                 return list;
@@ -41,6 +47,20 @@ namespace Report.Hotel
                 Console.WriteLine(DateTime.Now.ToString());
                 return null;
             }
+        }
+
+        private static bool IsSendToday(string[] list)
+        {
+            bool result = false;
+            DayOfWeek dow = DateTime.Now.DayOfWeek;
+            foreach (string temp in list)
+            {
+                if (temp.ToLower() == dow.ToString().ToLower())
+                {
+                    result = true;
+                }
+            }
+            return result;
         }
 
         public static bool CheckStatus(string dep)
@@ -76,7 +96,7 @@ namespace Report.Hotel
             try
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Config.xml");
+                doc.Load(XMLPath);
                 foreach (XmlNode node in doc.SelectNodes("//dep/name"))
                 {
                     status.Add(node.InnerText, false);
@@ -100,7 +120,7 @@ namespace Report.Hotel
             {
                 List<string> result = new List<string>();
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Config.xml");
+                doc.Load(XMLPath);
                 foreach (XmlNode node in doc.SelectNodes("//dep/name"))
                 {
                     result.Add(node.InnerText);
