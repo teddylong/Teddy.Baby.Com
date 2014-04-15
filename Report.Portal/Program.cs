@@ -9,7 +9,7 @@ using System.Threading;
 using System.IO;
 using System.Diagnostics;
 
-namespace Report.Hotel
+namespace Report.Portal
 {
     class Program
     {

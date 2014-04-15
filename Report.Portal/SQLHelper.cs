@@ -7,7 +7,7 @@ using System.Data;
 using System.Configuration;
 
 
-namespace Report.Hotel
+namespace Report.Portal
 {
     public class SQLHelper
     {

@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metric_AUTOMATION", "Metric
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetFileSystem", "GetFileSystem\GetFileSystem.csproj", "{149FD804-2492-46E6-88FE-44D22E832312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Hotel", "Report.Hotel\Report.Hotel.csproj", "{A728D7FA-5187-45CA-ADC2-78D4197BA5C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report.Portal", "Report.Portal\Report.Portal.csproj", "{A728D7FA-5187-45CA-ADC2-78D4197BA5C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCoverageService", "CodeCoverageService\CodeCoverageService.csproj", "{A3579E71-32F5-48B6-A0B5-F790943B549B}"
 EndProject
