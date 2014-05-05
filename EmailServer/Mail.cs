@@ -25,10 +25,9 @@ namespace EmailServer
         /// <param name="mailTitle">邮件标题</param>
         /// <param name="mailContent">邮件内容</param>
         /// <param name="pathList">附件列表集合 可以添加多个附件;也可以不添加附件</param>
-        public static void SendToEmail(string serverHost, int port, List<string> toMailAddressList,
-            string mailTitle, string mailContent, List<string> pathList)
+        public static string SendToEmail(string serverHost, int port, List<string> toMailAddressList, string mailTitle, string mailContent, List<string> pathList)
         {
-            mailTitle = mailTitle + string.Format("(From {0})", GetClinetIP());
+            //mailTitle = mailTitle + string.Format("(From {0})", GetClinetIP());
             mailContent = "<span style='font-family:\"微软雅黑\";font-size:10.0pt;''>" + mailContent + "</span>";
             //检测附件是否存在以及附件的大小
             FileStream FileStream_my = null;
@@ -38,8 +37,10 @@ namespace EmailServer
                 {
                     try
                     {
-                        if (!File.Exists(pathList[i])) //判断文件是否存在
-                            return;
+                        if (!File.Exists(pathList[i]))
+                        {
+                            return "File not exist... \n " + pathList[i];
+                        }
                         else
                         {
                             FileStream_my = new FileStream(pathList[i], FileMode.Open);//附件文件流
@@ -51,13 +52,13 @@ namespace EmailServer
                             //控制文件大小不大于5Ｍ                
                             if (size > 5)
                             {
-                                throw new Exception(string.Format("文件长度不能大于5M！你选择的文件大小为{0}M"));
+                                return ("文件长度不能大于5M！你选择的文件大小为{0}M");
                             }
                         }
                     }
                     catch (IOException Ex)
                     {
-                        throw new Exception(Ex.Message);
+                        return Ex.Message;
                     }
                 }
             }
@@ -77,7 +78,7 @@ namespace EmailServer
             }
             catch (Exception Ex)
             {
-                throw new Exception(string.Format("邮件发送失败,请确定SMTP服务名是否正确！\n技术信息:\n{0}", Ex.Message));
+                return ("邮件发送失败,请确定SMTP服务名是否正确 \n" + Ex.ToString());
             }
             try
             {
@@ -91,7 +92,7 @@ namespace EmailServer
             }
             catch (Exception Ex)
             {
-                throw new Exception(string.Format("邮件发送失败,请确定发件邮箱地址和密码的正确性！\n技术信息:\n{0}", Ex.Message));
+                return ("邮件发送失败,请确定发件邮箱地址和密码的正确性！\n " + Ex.Message);
             }
             MailMessage MailMessage_Mai = new MailMessage();
             //清空历史发送信息，以防发送时收件人收到的错误信息(收件人列表会不断重复)
@@ -104,9 +105,9 @@ namespace EmailServer
                 {
                     MailMessage_Mai.To.Add(new MailAddress(toMailAddressList[i].ToString()));
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    return ex.ToString();
                 }
             }
             MailMessage_Mai.From = MailAddress_from;//发件人邮箱 
@@ -137,7 +138,7 @@ namespace EmailServer
                     }
                     catch (IOException Ex)
                     {
-                        throw new Exception(string.Format(Ex.Message));
+                        return Ex.Message;
                     }
                 }
             }
@@ -150,7 +151,7 @@ namespace EmailServer
             }
             catch (Exception Ex)
             {
-                throw new Exception(string.Format("邮件发送失败\n技术信息:\n{0}", Ex.Message));
+                return Ex.Message;
             }
             finally
             {
@@ -159,6 +160,7 @@ namespace EmailServer
                     item.Dispose();   //一定要释放该对象,否则无法删除附件
                 }
             }
+            return "OK";
         }
     }
 }

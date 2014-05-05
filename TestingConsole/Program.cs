@@ -17,7 +17,12 @@ namespace TestingConsole
     {
         static void Main(string[] args)
         {
-            Send("autotest@ctrip.com", "Testing", "This Email comes from our server ---> 192.168.43.202");
+            //Send("autotest@ctrip.com", "Testing", "This Email comes from our server ---> 192.168.43.202");
+            ServiceReference.ServiceClient client = new ServiceReference.ServiceClient();
+   
+            //client.SendMailWithNoAttach("yqlong@ctrip.com", "bb", "bb");
+            string result = client.SendMail("autotest@ctrip.com;yqlong@ctrip.com", "Test with attachment", "Test with attachment", @"\\VDST-W7-056\CIFiles\teddy\20140429\公共服务\ScreenShot.png;\\VDST-W7-056\CIFiles\teddy\20140501\酒店\ScreenShot.png;\\VDST-W7-056\CIFiles\teddy\20140429\机票\ScreenShot.png");
+
         }
 
         private static void SendMailNoAttach(string postData)

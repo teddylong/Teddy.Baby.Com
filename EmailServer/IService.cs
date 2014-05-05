@@ -10,6 +10,7 @@ namespace EmailServer
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
+    
     public interface IService
     {
 
@@ -21,9 +22,10 @@ namespace EmailServer
 
         // TODO: Add your service operations here
         [OperationContract]
+        
         void SendMailWithNoAttach(string AddressList, string title, string body);
         [OperationContract]
-        void SendMail(string AddressList, string title, string body, string fileName);
+        string SendMail(string AddressList, string title, string body, string fileName);
         [OperationContract]
         void SendMailWithHtml(string AddressList, string title, string body);
     }
