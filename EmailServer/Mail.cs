@@ -162,5 +162,73 @@ namespace EmailServer
             }
             return "OK";
         }
+
+
+        public static string SendHTMLEmail(string serverHost, int port, List<string> toMailAddressList, string mailTitle, string mailContent)
+        {     
+            MailAddress MailAddress_from = null;  
+            SmtpClient smtpCilent = new SmtpClient();
+            try
+            { 
+                smtpCilent.Host = serverHost;
+                if (port != 000)
+                {
+                    smtpCilent.Port = port;
+                } 
+            }
+            catch (Exception Ex)
+            {
+                return ("邮件发送失败,请确定SMTP服务名是否正确 \n" + Ex.ToString());
+            }
+            try
+            {
+                NetworkCredential networkCredential_My = new NetworkCredential("appmail051", "b9{jkJ8^A\"iJ)B^wxem!"); 
+                MailAddress_from = new System.Net.Mail.MailAddress("appmail051@ctrip.com", "AutoTest");         
+                smtpCilent.Credentials = new System.Net.NetworkCredential("appmail051", "b9{jkJ8^A\"iJ)B^wxem!");
+            }
+            catch (Exception Ex)
+            {
+                return ("邮件发送失败,请确定发件邮箱地址和密码的正确性！\n " + Ex.Message);
+            }
+            MailMessage MailMessage_Mai = new MailMessage();
+            MailMessage_Mai.To.Clear();
+            for (int i = 0; i < toMailAddressList.Count; i++)
+            {
+                try
+                {
+                    MailMessage_Mai.To.Add(new MailAddress(toMailAddressList[i].ToString()));
+                }
+                catch (Exception ex)
+                {
+                    return ex.ToString();
+                }
+            }
+            MailMessage_Mai.From = MailAddress_from;              
+            MailMessage_Mai.Subject = mailTitle;
+            MailMessage_Mai.SubjectEncoding = System.Text.Encoding.UTF8;
+            MailMessage_Mai.Body = mailContent;
+            MailMessage_Mai.IsBodyHtml = true;
+            MailMessage_Mai.BodyEncoding = System.Text.Encoding.UTF8;
+            MailMessage_Mai.IsBodyHtml = true;
+             
+            MailMessage_Mai.Attachments.Clear();
+           
+            try
+            {
+                smtpCilent.Send(MailMessage_Mai);
+            }
+            catch (Exception Ex)
+            {
+                return Ex.Message;
+            }
+            finally
+            {
+                foreach (Attachment item in MailMessage_Mai.Attachments)
+                {
+                    item.Dispose();
+                }
+            }
+            return "OK";
+        }
     }
 }

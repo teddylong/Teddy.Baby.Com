@@ -79,7 +79,7 @@ namespace EmailServer
             }
 
             List<string> fileList = new List<string>();
-            Mail.SendToEmail("appmail.sh.ctriptravel.com", 000, mailList, title, body, fileList);
+            Mail.SendHTMLEmail("appmail.sh.ctriptravel.com", 000, mailList, title, body);
         }
     }
 }
