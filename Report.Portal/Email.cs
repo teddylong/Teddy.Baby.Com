@@ -144,6 +144,9 @@ namespace Report.Portal
                 case "火车票":
                     depNumber = 10015;
                     return getData(depNumber);
+                case "高端旅游":
+                    depNumber = 10017;
+                    return getData(depNumber);
                 default:
                     return null;
             }
