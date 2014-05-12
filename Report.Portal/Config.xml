@@ -3,7 +3,7 @@
   <dep>
     <name>机票</name>
     <email>sthuang@Ctrip.com;lzou@Ctrip.com;zqchi@Ctrip.com;liangchen2@Ctrip.com;zjluo@Ctrip.com;zding@Ctrip.com;huh@Ctrip.com;xxing@Ctrip.com;zy@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;autotest@Ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -14,8 +14,8 @@
   </dep>
   <dep>
     <name>酒店</name>
-    <email>xueliangwu@Ctrip.com;qhzhang@Ctrip.com;lei_c@Ctrip.com;yuyh@Ctrip.com;CAI_XINFA@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com;chenhd@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday</day>
+    <email>yqlong@ctrip.com</email>
+    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -27,7 +27,7 @@
   <dep>
     <name>公共服务</name>
     <email>huww@Ctrip.com;qiuyangjiang@Ctrip.com;xiaoqiangwang@Ctrip.com;xlli@Ctrip.com;jlshen@Ctrip.com;yhsi@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -51,7 +51,7 @@
   <dep>
     <name>营销</name>
     <email>ke_wang@Ctrip.com;hling@Ctrip.com;panwei@Ctrip.com;xj_wei@Ctrip.com;jhji@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
-    <day>Monday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -63,7 +63,7 @@
   <dep>
     <name>团队</name>
     <email>shenwm@Ctrip.com;kmgu@Ctrip.com;xhzhou@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;CSO_rm@Ctrip.com;autotest@ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -75,7 +75,7 @@
   <dep>
     <name>攻略社区</name>
     <email>lsqiu@Ctrip.com;anxw@Ctrip.com;autotest@ctrip.com;jgli@Ctrip.com;mei_yang@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -87,7 +87,7 @@
   <dep>
     <name>国际网站</name>
     <email>qianwu@Ctrip.com;longhb@Ctrip.com;dpxie@Ctrip.com;wu_jx@Ctrip.com;xj_wei@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -99,7 +99,7 @@
   <dep>
     <name>地面</name>
     <email>rbli@Ctrip.com;j_yan@Ctrip.com;jhji@Ctrip.com;qiuwy@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -111,7 +111,7 @@
   <dep>
     <name>用车</name>
     <email>zjzhang@Ctrip.com;lmzhong@Ctrip.com;lzhong@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -123,7 +123,7 @@
   <dep>
     <name>邮轮</name>
     <email>jqiu@Ctrip.com;duwj@Ctrip.com;guo_y@Ctrip.com;he.y@Ctrip.com;dyzhang@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -135,7 +135,7 @@
   <dep>
     <name>套餐</name>
     <email>yu_yl@Ctrip.com;wjweng@Ctrip.com;wtjiang@Ctrip.com;yxing@Ctrip.com;dyzhang@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Tuesday,Wednesday,Thursday,Friday</day>
+    <day>Monday,Tuesday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
@@ -147,11 +147,23 @@
   <dep>
     <name>火车票</name>
     <email>dinglin@Ctrip.com;jj.lu@Ctrip.com;t.chen@Ctrip.com;zhou_l@Ctrip.com;xj_wei@Ctrip.com;jhji@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
-    <day>Monday,Thursday,Friday,</day>
+    <day>Monday,Thursday</day>
     <website>
       <link name="ImageLink">
         <![CDATA[
         http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10015&runid=
+        ]]>
+      </link>
+    </website>
+  </dep>
+  <dep>
+    <name>高端旅游</name>
+    <email>jianchen@ctrip.com;n_zhang@Ctrip.com;lai_li@Ctrip.com;xj_wei@Ctrip.com;yhsi@Ctrip.com;autotest@ctrip.com;CSO_rm@Ctrip.com</email>
+    <day>Monday,Tuesday</day>
+    <website>
+      <link name="ImageLink">
+        <![CDATA[
+        http://autotest.sh.ctriptravel.com/Pages/Reports/CILogRunReport.aspx?depid=10017&runid=
         ]]>
       </link>
     </website>

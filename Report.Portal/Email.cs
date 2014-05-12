@@ -46,6 +46,20 @@ namespace Report.Portal
 
         }
 
+        private static void SendWithAttachment(string receiver, string title, string body, string attachments)
+        {
+            try
+            {
+                ServiceReference.ServiceClient client = new ServiceReference.ServiceClient();
+                client.SendMail(receiver, title, body, attachments);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something wrong happened in Email.SendWithAttachment Method...");
+                Console.WriteLine(e.ToString());
+            }
+        }
+
         public static void Send(string receiver, string title, string body)
         {
             Console.WriteLine("当前线程邮件接收者： " + receiver + " 时间： " + DateTime.Now);
@@ -80,15 +94,19 @@ namespace Report.Portal
                 Email.Body += "<div style=\"color:red;font-size:13px;\">(点击图片可link到Portal Site)</div>";
                 Email.Body += "<div style=\"font-size:16px; color:blue;\">成功运行Job数/总Job数 ---> " + data[0] + "/" + data[1] + "</div>";
 
+                string attachment = "";
                 foreach (var item in dic)
                 {
                     Email.Body += "<a style=\"text-align:center; margin-left:auto; margin-right:auto;\" href = " + item.Key + ">" + "<img src=\"" + item.Value + "\"/></a><br/><br/>";
+                    attachment += item.Value;
                 }
 
                 Email.Priority = MailPriority.Low;
                 Email.Subject = title;
                 Email.SubjectEncoding = Encoding.UTF8;
-                Send(emailAccount, Email.Subject, Email.Body);
+
+
+                SendWithAttachment(emailAccount, Email.Subject, Email.Body, attachment);
                 return true;
             }
             catch (Exception e)

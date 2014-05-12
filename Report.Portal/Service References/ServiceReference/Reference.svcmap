@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4a751b53-742f-45e2-aa9a-4e49e3e489a7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.154.196:8888/EmailService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EmailService.xsd" MetadataType="Schema" ID="ad30cae8-24e1-4d4d-ae7f-138ee8015696" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmailService1.xsd" MetadataType="Schema" ID="d706e69d-862d-456a-b60d-c22977dae478" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EmailService.wsdl" MetadataType="Wsdl" ID="1f831acb-c5b8-4b2a-b015-065e3594ca53" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?wsdl" />
+    <MetadataFile FileName="EmailService.disco" MetadataType="Disco" ID="8f913480-7632-4958-9948-1d84d00748b8" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?disco" />
+    <MetadataFile FileName="EmailService2.xsd" MetadataType="Schema" ID="179e4e81-2f26-45ab-be1f-01c22bd0b66c" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
