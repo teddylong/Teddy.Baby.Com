@@ -18,14 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://172.16.154.196:8888/EmailService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://172.16.144.19:8888/EmailService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EmailService.xsd" MetadataType="Schema" ID="ad30cae8-24e1-4d4d-ae7f-138ee8015696" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?xsd=xsd1" />
-    <MetadataFile FileName="EmailService1.xsd" MetadataType="Schema" ID="d706e69d-862d-456a-b60d-c22977dae478" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?xsd=xsd0" />
-    <MetadataFile FileName="EmailService.wsdl" MetadataType="Wsdl" ID="1f831acb-c5b8-4b2a-b015-065e3594ca53" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?wsdl" />
-    <MetadataFile FileName="EmailService.disco" MetadataType="Disco" ID="8f913480-7632-4958-9948-1d84d00748b8" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?disco" />
-    <MetadataFile FileName="EmailService2.xsd" MetadataType="Schema" ID="179e4e81-2f26-45ab-be1f-01c22bd0b66c" SourceId="1" SourceUrl="http://172.16.154.196:8888/EmailService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmailService3.xsd" MetadataType="Schema" ID="f9941620-af31-4195-9c00-f2efe8d6e885" SourceId="1" SourceUrl="http://172.16.144.19:8888/EmailService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmailService1.wsdl" MetadataType="Wsdl" ID="23cc2076-b7f5-40c9-8d73-fbfc9700a75a" SourceId="1" SourceUrl="http://172.16.144.19:8888/EmailService.svc?wsdl" />
+    <MetadataFile FileName="EmailService31.xsd" MetadataType="Schema" ID="4b7ef0c1-8d3f-4ec5-978e-d46b164c5bdc" SourceId="1" SourceUrl="http://172.16.144.19:8888/EmailService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EmailService32.xsd" MetadataType="Schema" ID="e9835d49-31b3-4cc8-b12f-4e60705cefe8" SourceId="1" SourceUrl="http://172.16.144.19:8888/EmailService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmailService1.disco" MetadataType="Disco" ID="38320e38-13ef-4dcc-836b-5b28700fdfb5" SourceId="1" SourceUrl="http://172.16.144.19:8888/EmailService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

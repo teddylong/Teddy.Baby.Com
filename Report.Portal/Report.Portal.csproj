@@ -60,14 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ServiceReference\EmailService.wsdl" />
-    <None Include="Service References\ServiceReference\EmailService.xsd">
+    <None Include="Service References\ServiceReference\EmailService1.wsdl" />
+    <None Include="Service References\ServiceReference\EmailService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\EmailService1.xsd">
+    <None Include="Service References\ServiceReference\EmailService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\EmailService2.xsd">
+    <None Include="Service References\ServiceReference\EmailService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\Report.Portal.ServiceReference.CompositeType.datasource">
@@ -78,13 +78,13 @@
     <Content Include="Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\ServiceReference\EmailService1.disco" />
     <None Include="Service References\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\ServiceReference\configuration.svcinfo" />
     <None Include="Service References\ServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference\EmailService.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
